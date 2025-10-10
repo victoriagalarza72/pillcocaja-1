@@ -1,0 +1,298 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand fonts */
+@font-face {
+  font-family: 'Product Sans';
+  src: url('./assets/fonts/Product Sans Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Blacker Display';
+  src: url('./assets/fonts/Blacker Display Heavy.ttf') format('truetype');
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Blacker Display';
+  src: url('./assets/fonts/Blacker Display Regular Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'Blacker Text';
+  src: url('./assets/fonts/Blacker-Text-Heavy-trial.ttf') format('truetype');
+  font-weight: 800; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Source Code Variable';
+  src: url('./assets/fonts/SourceCodeVariable-Roman.otf') format('opentype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+@layer base {
+  body {
+    font-family: 'Product Sans', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Blacker Display', 'Blacker Text', serif;
+    line-height: 1.2;
+  }
+
+  :root {
+    /* Variables CSS para colores dinámicos */
+    --color-forest-500: #587E33;
+    --color-forest-600: #4B6E2C;
+    --color-forest-700: #3E5C25;
+    --color-forest-800: #244019;
+    --color-forest-900: #0B291B;
+    --color-cacao-500: #C26A1C;
+    --color-cacao-600: #A85718;
+    --color-cacao-700: #7F4012;
+    --color-cacao-800: #573932;
+    --color-cacao-900: #44230A;
+    --color-brand-bean: #587E33;
+    --color-brand-deep: #0B291B;
+    --color-brand-accent1: #C26A1C;
+    --color-brand-accent3: #610B31;
+  }
+}
+
+@layer components {
+  /* Hero description: lighter weight and system UI font to avoid bold-only Product Sans */
+  .hero-desc {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+    font-weight: 300;
+  }
+  /* Texto de descripción más ligero para secciones */
+  .desc-text {
+    @apply font-mono font-light;
+    font-weight: 300;
+  }
+  .btn-primary {
+    @apply bg-forest-800 text-white px-8 py-3 rounded-none font-medium hover:bg-forest-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply border-2 border-forest-800 text-forest-800 px-8 py-3 rounded-none font-medium hover:bg-forest-800 hover:text-white transition-all duration-300;
+  }
+  .card {
+    @apply bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 rounded-xl;
+  }
+  .glass { @apply backdrop-blur-md bg-white/90 border border-white/20; }
+  .section-padding { @apply py-20 px-4 sm:px-6 lg:px-8; }
+  .container-width { @apply max-w-7xl mx-auto; }
+
+  .btn-double-outline {
+    @apply relative inline-flex items-center justify-center px-6 py-3 font-semibold text-white rounded-none transition-colors duration-200;
+    background-color: rgba(0,0,0,0.35);
+  }
+  .btn-double-outline:hover { background-color: rgba(0,0,0,0.5); }
+  .btn-double-outline::before,
+  .btn-double-outline::after {
+    content: ''; position: absolute; inset: 0;
+    border: 2px solid rgba(255,255,255,0.9); border-radius: 0; pointer-events: none;
+  }
+  .btn-double-outline::after {
+    inset: 5px; border-color: rgba(255,255,255,0.7); border-radius: 0;
+  }
+}
+
+/* Misc */
+.text-glow { text-shadow: 0 1px 1px rgba(0,0,0,.35); }
+.video-background { position: relative; overflow: hidden; }
+.video-background::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(6, 95, 70, 0.3), rgba(124, 45, 18, 0.2));
+  z-index: 1;
+}
+.video-background > * { position: relative; z-index: 2; }
+
+/* Reveal */
+.reveal { transform: translateY(15px); opacity: 0; transition: transform .8s cubic-bezier(.2,.8,.2,1), opacity .8s cubic-bezier(.2,.8,.2,1); }
+.reveal-up { transform: translateY(28px) scale(.985); }
+.reveal-right { transform: translateX(24px) scale(.985); }
+.reveal-zoom { transform: translateY(18px) scale(.96); }
+.reveal[data-reveal='shown'] { transform: translateY(0); opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-up, .reveal-right, .reveal-zoom { transition: none !important; transform: none !important; opacity: 1 !important; }
+}
+
+/* Coffee rain */
+@keyframes beanFall {
+  0% { transform: translateY(-120%) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(120vh) rotate(140deg); opacity: 0; }
+}
+.coffee-bean {
+  position: absolute; animation-name: beanFall; animation-timing-function: linear; animation-iteration-count: infinite;
+  animation-duration: var(--dur, 9s); animation-delay: var(--delay, 0s); opacity: 0.9; will-change: transform, opacity;
+}
+
+/* === Poster cards para "Current Microlots" === */
+@layer utilities { .pt-100p { padding-top: 100%; } }  /* cuadrado 1:1 */
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* Hero pan-zoom animation (slower and subtler) */
+@keyframes heroPan {
+  0%   { transform: scale(1.08) translateX(3%); }
+  50%  { transform: scale(1.10) translateX(0%); }
+  100% { transform: scale(1.12) translateX(-3%); }
+}
+  
+.animate-hero-pan { animation: heroPan 36s ease-in-out infinite alternate; transform-origin: center; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-pan { animation: heroPan 36s ease-in-out infinite alternate; transform-origin: center; }
+}
+
+@layer components {
+  /* OJO: sin 'group' aquí */
+  .poster { @apply relative rounded-none overflow-hidden bg-transparent shadow-none transition-transform duration-300; }
+  .poster { will-change: transform; }
+  .poster:hover { @apply scale-105 md:scale-110 z-10 shadow-xl md:shadow-2xl; }
+
+  .poster-aspect { @apply relative w-full pt-100p; }
+  .poster-media  { @apply absolute inset-0 w-full h-full object-cover transition-transform duration-500; }
+  .poster:hover .poster-media { @apply scale-105; }
+  /* Highlight state (programmatic) */
+  .poster-highlighted { position: relative; z-index: 20; }
+  .microlots-container:not(:hover) .poster-highlighted .poster-hover { opacity: 1 !important; }
+  .poster-highlighted .poster-media { transform: scale(1.04); transition-duration: 700ms; }
+
+  .poster-dim { @apply absolute inset-0 bg-black/40 transition-colors duration-300; }
+  .poster:hover .poster-dim { @apply bg-black/55; }
+
+  .poster-center { @apply absolute inset-0 flex items-center justify-center text-center px-6; }
+  .poster-title {
+    @apply text-white font-extrabold leading-tight drop-shadow-md;
+    font-family: 'Blacker Display','Blacker Text',serif;
+    font-size: clamp(1.6rem, 3.3vw, 2.4rem);
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+
+  .poster-footer { @apply absolute left-0 right-0 bottom-6 flex items-center justify-center gap-2 text-white; }
+  .poster-foot-label { @apply text-[11px] tracking-[0.18em] uppercase font-semibold drop-shadow; }
+}
+
+/* === Poster 3x4 refinado para "Current Microlots" === */
+@layer utilities {
+  /* relación 3:4 (vertical) */
+  .pt-133p { padding-top: 133.3333%; }
+}
+
+@layer components {
+  /* Contenedor base (sin group) */
+  .poster { @apply relative overflow-hidden rounded-none shadow-none bg-transparent transition-transform duration-300; }
+  .poster { will-change: transform; }
+  .poster:hover { @apply scale-105 md:scale-110 z-10 shadow-xl md:shadow-2xl; }
+
+  /* Aspecto vertical 3:4 */
+  .poster-aspect-3x4 { @apply relative w-full pt-133p; }
+
+  /* Imagen */
+  .poster-media { @apply absolute inset-0 w-full h-full object-cover transition-transform duration-500; }
+  .poster:hover .poster-media { @apply scale-105; }
+
+  /* Capa oscura con opacidad */
+  .poster-dim { @apply absolute inset-0 transition-opacity duration-300; background: linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.52)); }
+
+  /* Contenidos en la foto */
+  .poster-top    { @apply absolute top-3 left-3 right-3 text-white text-[11px] tracking-[0.18em] uppercase font-semibold; }
+  .poster-bottom { @apply absolute left-4 right-4 bottom-5 text-white; }
+  .poster-name   { @apply font-serif font-bold leading-snug; font-size: clamp(1.1rem, 2.6vw, 1.5rem); }
+  .poster-meta   { @apply text-white/85 text-xs mt-2; }
+
+  /* Capa tintada al hover/click */
+  .poster-hover {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300 p-5 text-white;
+    /* Usamos CSS directo para evitar circularidad con @apply flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Fallback + default: verde oscuro para todas las tarjetas */
+    background-color: rgba(11, 41, 27, 0.68);
+  }
+  .poster:hover .poster-hover { @apply opacity-100; }
+  /* Todas las variantes usan el mismo verde oscuro */
+  .tint-forest .poster-hover { background-color: rgba(11, 41, 27, 0.68); }
+  .tint-cacao  .poster-hover { background-color: rgba(11, 41, 27, 0.68); }
+  .tint-deep   .poster-hover { background-color: rgba(11, 41, 27, 0.68); }
+  .tint-violet .poster-hover { background-color: rgba(11, 41, 27, 0.68); }
+
+  /* Mostrar solo el CTA en hover */
+  .poster-hover > h3,
+  .poster-hover > p,
+  .poster-hover > .notes-list { display: none; }
+  /* oculta el bloque de chips de notas si existe */
+  /* (evitamos referenciar utilidades como .flex para no disparar @apply) */
+
+  /* centra el contenedor del CTA aunque venga con mt-auto */
+  .poster-hover .mt-auto { margin-top: 0 !important; padding-top: 0 !important; }
+  .poster-hover .mt-auto.pt-4 { margin-top: 0 !important; padding-top: 0 !important; }
+
+  /* Fuerza al CTA a ir justo al centro absoluto */
+  .poster-hover .only-cta {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 2.5rem);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Botón blanco centrado en hover */
+  .poster-hover .poster-cta { background: #fff; color: #244019; border: 1px solid rgba(255,255,255,0.85); }
+  /* Sin efecto hover en el botón blanco */
+  .poster-cta--white:hover {
+    background: #fff !important;
+    color: #244019 !important;
+    transform: none !important;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1) !important; /* equivalente a shadow-lg */
+  }
+
+  /* Botón blanco para hover */
+  .poster-cta--white { @apply bg-white text-forest-800 border border-white/80; }
+  /* título un pelín más chico */
+  .poster-tight .poster-title { font-size: clamp(1.0rem, 2.2vw, 1.25rem); }
+
+  /* CTA */
+  .poster-cta {
+    @apply inline-flex items-center justify-center w-full
+           bg-forest-800 text-white rounded-none font-medium
+           px-5 py-3 text-sm shadow-lg transition-all duration-300;
+  }
+  .poster-cta:hover { @apply bg-forest-700 shadow-xl -translate-y-0.5; }
+}
+
+@keyframes imagePanEffect {
+  0%   { transform: translateX(-3%) scale(1.12); }
+  100% { transform: translateX(3%)  scale(1.12); }
+}
+
+.animate-image-pan {
+  animation: imagePanEffect 28s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+/* Subtle one-shot pulse to spotlight the center microlot card */
+@keyframes posterPulse {
+  0%   { transform: scale(1); }
+  60%  { transform: scale(1.06); }
+  100% { transform: scale(1.02); }
+}
+.poster-spotlight {
+  animation: posterPulse 1.6s ease-out 1;
+}
+@layer utilities {
+  .bg-paper {
+    /* subtle paper-like background */
+    background-color: #f7f6f3;
+    background-image:
+      radial-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 6px 6px, 11px 11px;
+    background-position: 0 0, 3px 3px;
+  }
+}
