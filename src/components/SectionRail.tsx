@@ -16,18 +16,30 @@ const SectionRail: React.FC<Props> = ({ items, activeId, onClick, railWidth = 13
   // - Green Coffee "g-microlots" uses deep forest rgb(11,41,27)
   // - Fallback to olive tone
   const railBg =
-    activeId === "sec-quote"
+    activeId === 'r-where' || activeId === 'r-contact'
+      ? 'transparent'
+      : activeId === "sec-quote"
       ? "rgb(107, 113, 69)"
       : activeId === "sec-special"
       ? '#00000091'
+      : activeId === 'g-nanolots'
+      ? '#00000091'
       : activeId === 'g-microlots'
       ? 'rgb(11, 41, 27)'
-      : activeId === 'g-terroir' || activeId === 'g-harvest'
+      : activeId === 's-community'
+      ? 'rgba(145, 93, 55, 0.92)'
+      : activeId === 's-impact'
+      ? 'transparent'
+      : activeId === 's-goals'
+      ? '#0b291b'
+      : activeId === 'c-form'
+      ? '#0b291b'
+      : activeId === 'g-terroir' || activeId === 'r-terroir' || activeId === 'g-harvest'
       ? 'rgb(0 0 0 / 39%)'
-      : activeId === 'r-benefits' || activeId === 'r-profiles'
+      : activeId === 'r-benefits' || activeId === 'r-profiles' || activeId === 'g-roasting'
       ? 'rgb(16 36 26)'
       : '#6b7145';
-  const railShadow = activeId === 'r-benefits' ? '' : 'shadow-[inset_-1px_0_0_rgba(255,255,255,.08)]';
+  const railShadow = (activeId === 'r-benefits' || activeId === 'r-where' || activeId === 'r-contact' || activeId === 's-impact') ? '' : 'shadow-[inset_-1px_0_0_rgba(255,255,255,.08)]';
   return (
     <aside
       className={`hidden md:flex fixed left-0 top-0 h-screen z-20 transform-gpu transition-all duration-500 ease-out ${visible ? 'opacity-100 translate-x-0 pointer-events-auto' : 'opacity-0 -translate-x-3 pointer-events-none'}`}
@@ -36,7 +48,16 @@ const SectionRail: React.FC<Props> = ({ items, activeId, onClick, railWidth = 13
       {/* franja verde */}
       <div
         className={`w-full transition-colors duration-500 ease-out ${railShadow}`}
-        style={{ backgroundColor: railBg }}
+        style={{
+          backgroundColor: railBg,
+          backgroundImage:
+            activeId === 's-community'
+              ? `linear-gradient(rgba(145,93,55,0.92), rgba(145,93,55,0.92)), url("src/assets/illustrations/cafeflor.svg")`
+              : undefined,
+          backgroundSize: activeId === 's-community' ? 'contain' : undefined,
+          backgroundRepeat: activeId === 's-community' ? 'no-repeat' : undefined,
+          backgroundPosition: activeId === 's-community' ? 'center 85%' : undefined,
+        }}
       />
       {/* títulos encima (opcional) */}
       {showLabels && (

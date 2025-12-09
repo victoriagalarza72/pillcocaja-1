@@ -5,11 +5,10 @@ import TopNav from "../components/TopNav";
 import { useSectionObserver } from "../components/useSectionObserver";
 import OurCoffeeSection from "../components/OurCoffeeSection";
 import OurCoffeeStoryMobile from "../components/OurCoffeeStoryMobile";
-import OfferingsShowcase from "../components/OfferingShowcase";
 import MobileOfferingsCarousel from "../components/MobileOfferingsCarousel";
+import OfferingsShowcase from "../components/OfferingShowcase";
 import SeasonalHighlight from "../components/SeasonalHighlight";
 import SeasonalHighlightMobile from "../components/SeasonalHighlightMobile";
-import NewsletterModal from "../components/NewsletterModal";
 
 const videoSrc = "/videos/videocortado2.mp4";
 const heroPoster = "/videos/hero-poster.jpg";
@@ -28,7 +27,7 @@ const Home: React.FC = () => {
   const [viewportWidth, setViewportWidth] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth : DESKTOP_BREAKPOINT
   );
-  const [showNewsletter, setShowNewsletter] = useState(true);
+  // Newsletter disabled per request
 
   useEffect(() => {
     const handleResize = () => setViewportWidth(window.innerWidth);
@@ -162,10 +161,15 @@ const Home: React.FC = () => {
         </section>
 
         <section id="sec-special" className="relative snap-start">
-          <OfferingsShowcase
-            fullHeight={true}
-            leftOffset={isLargeUp ? effectiveRailWidth : 0}
-          />
+        <div className="hidden lg:block">
+            <OfferingsShowcase
+              fullHeight={true}
+              leftOffset={isLargeUp ? effectiveRailWidth : 0}
+            />
+          </div>
+          <div className="block lg:hidden">
+            <MobileOfferingsCarousel />
+          </div>
         </section>
 
         <section id="sec-quote" className="relative snap-start">
@@ -180,7 +184,6 @@ const Home: React.FC = () => {
           </div>
         </section>
       </div>
-      <NewsletterModal open={showNewsletter} onClose={() => setShowNewsletter(false)} />
       {/* Floating WhatsApp button */}
       <a
         href="https://wa.me/593997069202"

@@ -5,6 +5,7 @@ import { Download } from 'lucide-react';
 type Microlot = {
   id: number;
   name: string;
+  meta?: string;
   variety: string;
   process: string;
   altitude: string;
@@ -95,16 +96,8 @@ const MicrolotsCarouselMobile: React.FC<Props> = ({ microlots }) => {
                     <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-transparent" />
 
                     <div className="absolute inset-0 p-5 flex flex-col justify-between text-white text-center">
-                      {/* Top: Flavor Notes */}
-                      <div>
-                        <div className="flex flex-wrap gap-1.5">
-                          {lot.notes.map(note => (
-                            <span key={note} className="text-[10px] uppercase tracking-widest font-semibold bg-white/10 px-2 py-0.5">
-                              {note}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                      {/* Top: Flavor/Roasting notes removed */}
+                      <div />
 
                       {/* Bottom: Info & CTA */}
                       <div>
@@ -112,7 +105,7 @@ const MicrolotsCarouselMobile: React.FC<Props> = ({ microlots }) => {
                           {lot.name}
                         </h3>
                         <p className="text-white/80 text-xs mt-1">
-                          {lot.variety} · {lot.process} · {lot.altitude}
+                          {lot.meta ? lot.meta : `${lot.variety} · ${lot.process} · ${lot.altitude}`}
                         </p> 
                       </div>
                     </div>
@@ -150,7 +143,7 @@ const MicrolotsCarouselMobile: React.FC<Props> = ({ microlots }) => {
           aria-label={`Download spec sheet for ${microlots[activeIndex].name}`}
         >
           <Download className="h-4 w-4 mr-2" />
-          Download Spec Sheet
+          View Details
         </a>
       </div>
     </div>

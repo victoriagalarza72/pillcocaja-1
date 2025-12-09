@@ -30,8 +30,7 @@ const Footer = () => {
             <h3 className="font-serif text-lg font-semibold mb-4">Coffee</h3>
             <ul className="space-y-2">
               <li><a href="/green-coffee" className="text-gray-300 hover:text-white transition-colors">Green Coffee</a></li>
-              <li><a href="/for-roasters" className="text-gray-300 hover:text-white transition-colors">For Roasters</a></li>
-              <li><a href="/roasted-coffee" className="text-gray-300 hover:text-white transition-colors">Roasted Coffee</a></li>
+              <li><a href="/farm" className="text-gray-300 hover:text-white transition-colors">Farm</a></li>
             </ul>
           </div>
 
@@ -40,7 +39,6 @@ const Footer = () => {
             <h3 className="font-serif text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li><a href="/sustainability" className="text-gray-300 hover:text-white transition-colors">Sustainability</a></li>
-              <li><a href="/about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>

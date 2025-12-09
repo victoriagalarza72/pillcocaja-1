@@ -1,0 +1,48 @@
+          id="r-contact"
+          className="relative min-h-screen snap-start overflow-hidden"
+        >
+          {/* Background image */}
+          <img
+            src={montanaHd}
+            alt="Mountain valley"
+            className="absolute top-0 left-0 right-0 w-full select-none pointer-events-none"
+          />
+          {/* White fog top gradient (bleed 1px to avoid white seam) */}
+          <div className="pointer-events-none absolute inset-x-0 -top-px h-[55vh] bg-gradient-to-b from-white to-transparent" aria-hidden />
+
+          <div
+            className="relative z-10 container-width text-center"
+            
+          >
+            <div className="pt-20 md:pt-28 lg:pt-32" />
+            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-forest-900">Ready to Connect?</h2>
+            <p className="desc-text mx-auto mb-10 max-w-2xl text-lg text-gray-700">
+              Let us know how you would like to collaborate and we will respond with tailored availability, pricing, and logistics.
+            </p>
+
+            <div className="mx-auto max-w-4xl grid grid-cols-1 gap-6 md:grid-cols-3">
+              {CONTACT_OPTIONS.map((option) => (
+                <div key={option.title} className="text-center backdrop-blur-sm rounded-none ring-1 ring-black/10 py-6">
+                  <option.icon className="h-10 w-10 mx-auto mb-3 text-forest-900" />
+                  <h3 className="font-semibold mb-3 text-forest-900">{option.title}</h3>
+                  <a
+                    href={option.href}
+                    target={option.href.startsWith('http') ? '_blank' : '_self'}
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center bg-forest-900 text-white px-2.5 py-1.5 text-xs shadow-sm hover:bg-forest-900/90"
+                  >
+                    {option.buttonLabel}
+                  </a>
+                </div>
+              ))}
+            </div>
+            <div className="pb-16" />
+          </div>
+        </section>
+      </div>
+    </main>
+  );
+};
+
+export default ForRoasters;
+

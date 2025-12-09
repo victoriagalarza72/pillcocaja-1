@@ -17,6 +17,71 @@ const OurCoffeeSection: React.FC<Props> = ({
   fullHeight = true,
   leftOffset = 0,
 }) => {
+  // New split layout similar to reference (left image, right copy)
+  const useNewLayout = true;
+  if (useNewLayout) {
+    const sectionClass = fullHeight
+      ? "relative h-screen overflow-hidden bg-cream-50"
+      : "relative overflow-hidden bg-cream-50 py-16 md:py-20";
+
+    return (
+      <section className={sectionClass}>
+        {/* subtle background illustrations */}
+        <img
+          src={illusCafe}
+          alt=""
+          aria-hidden
+          className="pointer-events-none select-none absolute inset-0 w-full h-full object-contain opacity-[0.08]"
+        />
+        <img
+          src={illusMountain}
+          alt=""
+          aria-hidden
+          className="pointer-events-none select-none absolute inset-0 w-full h-full object-contain opacity-[0.05]"
+          style={{ transform: "scale(1.06)" }}
+        />
+
+        <div
+          className={fullHeight ? "relative h-full px-6 md:px-10" : "relative px-6 md:px-10"}
+          style={{ paddingLeft: leftOffset ? leftOffset + 24 : undefined }}
+        >
+          <div className="grid h-full grid-cols-12 gap-8 items-center">
+            {/* Left image */}
+            <figure className="col-span-12 md:col-span-6 relative overflow-hidden">
+              <img
+                src={topImg}
+                alt="Yunguilla Valley"
+                className={fullHeight ? "w-full h-[70vh] md:h-[80vh] object-cover" : "w-full h-[420px] object-cover"}
+              />
+            </figure>
+
+            {/* Right content */}
+            <article className="col-span-12 md:col-span-6">
+              <h2 className="font-serif text-3xl md:text-5xl font-black text-forest-900 leading-tight mb-4">
+                From Yunguilla Valley to the World
+              </h2>
+              <p className="text-base md:text-lg text-forest-900/80 desc-text max-w-prose">
+                PILLCOCAJA SPECIALTY COFFEE was founded on January 9, 2008, to
+                develop commercial and agricultural projects in the picturesque
+                Yunguilla Valley, 75 km from Cuenca. Originally focused on sugarcane
+                for alcohol production, the company faced declining sales due to rising
+                costs and market challenges.
+              </p>
+              <p className="text-base md:text-lg text-forest-900/80 desc-text max-w-prose mt-4">
+                In 2013, Pillcocaja shifted to high-quality coffee, capitalizing on the
+                area’s unique microclimate. Partnering with Nestlé Ecuador, they
+                planted an experimental coffee plot, which successfully grew into 7
+                hectares of specialty coffee. This shift not only revived the company but
+                also created jobs for 20 local families and underscored their
+                commitment to nature conservation. Today, their coffee is cherished
+                worldwide, featured with prestigious roasters like April, Portola, and Dak.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    );
+  }
   const rootRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -134,15 +199,12 @@ const OurCoffeeSection: React.FC<Props> = ({
               FROM YUNGUILLA VALLEY
             </h3>
             <p className="text-sm leading-relaxed text-forest-900/80 desc-text">
-              From Yunguilla Valley to the World - Pillcocaja is a women-led, family-run project rooted in stewardship.
-              We nurture biodiversity, protect water sources and harvest with care so each lot tells an honest story of
-              place and people.
+              PILLCOCAJA SPECIALTY COFFEE was founded on January 9, 2008, to
+              develop commercial and agricultural projects in the picturesque
+              Yunguilla Valley, 75 km from Cuenca. Originally focused on sugarcane
+              for alcohol production, the company faced declining sales due to rising
+              costs and market challenges.
             </p>
-            <div className="mt-4 flex gap-6 text-[12px] text-forest-900/60 flex-wrap md:flex-nowrap">
-              <button className="hover:text-forest-900">Read more</button>
-              <button className="hover:text-forest-900">Go to top</button>
-              <button className="hover:text-forest-900">Share</button>
-            </div>
           </article>
 
           <figure
@@ -184,9 +246,13 @@ const OurCoffeeSection: React.FC<Props> = ({
               TO THE WORLD
             </h4>
             <p className="text-sm leading-relaxed text-forest-900/80 desc-text">
-              Through traceable, carefully prepared microlots, our coffees travel from the valley to roasters around the
-              world. Each bag carries the work of our community-clarity, sweetness and the distinct character of our
-              mountains.
+              In 2013, Pillcocaja shifted to high-quality coffee, capitalizing on the
+              area’s unique microclimate. Partnering with Nestlé Ecuador, they
+              planted an experimental coffee plot, which successfully grew into 7
+              hectares of specialty coffee. This shift not only revived the company but
+              also created jobs for 20 local families and underscored their
+              commitment to nature conservation. Today, their coffee is cherished
+              worldwide, featured with prestigious roasters like April, Portola, and Dak.
             </p>
           </article>
 

@@ -10,20 +10,20 @@ type Props = {
 const cards = [
   {
     title: "Green Coffee",
-    img: "src/assets/images/cafe3.jpg",
+    img: "src/assets/images/micro7.png",
     to: "/green-coffee",
-    desc: "Premium microlots with full traceability.",
+    desc: "Premium microlots and nanolots with full traceability.",
   },
   {
     title: "Direct Trade",
-    img: "src/assets/images/cafe4.jpg",
-    to: "/for-roasters",
+    img: "src/assets/images/cafefondo.jpeg",
+    to: "/farm",
     desc: "Transparent partnerships with our family farm.",
   },
   {
     title: "Roasted Coffee",
-    img: "src/assets/images/cafe5.jpg",
-    to: "/roasted-coffee",
+    img: "src/assets/images/roastedcoffee.jpeg",
+    to: "/contact",
     desc: "Our roasted line is coming soon.",
   },
 ];
@@ -141,11 +141,11 @@ export default function OfferingsShowcase({
               We Grow & Trade Coffee with Care
             </h2>
             <p className="text-white/90 text-sm md:text-base mb-5 md:mb-6 max-w-md desc-text">
-              Explore our microlots, build direct trade partnerships, and stay
+              Explore our microlots and nanolots, build direct trade partnerships, and stay
               tuned for our roasted line.
             </p>
-            <Link to="/contact" className="btn-double-outline mt-3 lg:mt-0 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base">
-              Connect With Us
+            <Link to="/green-coffee" className="btn-double-outline mt-3 lg:mt-0 px-4 py-2 text-sm md:px-6 md:py-3 md:text-base">
+              Microlots & Nanolots
             </Link>
           </div>
 

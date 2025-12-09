@@ -1,0 +1,6 @@
+<ul className="space-y-3 text-[15px] md:text-base">
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-cream-200 block" aria-hidden />Awaken the <em className="italic font-serif">wisdom within</em></li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-cream-200 block" aria-hidden />Reconnect with your deeper talents</li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-cream-200 block" aria-hidden />Attune to the <em className="italic font-serif">sacred rhythms of life</em></li>
+                  <li className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-cream-200 block" aria-hidden />Cultivate authentic relationships — with self, others and the world</li>
+                </ul>

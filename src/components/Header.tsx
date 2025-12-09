@@ -26,10 +26,8 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Green Coffee", path: "/green-coffee" },
-    { name: "For Roasters", path: "/for-roasters" },
-    { name: "Roasted Coffee", path: "/roasted-coffee" },
+    { name: "Farm", path: "/farm" },
     { name: "Sustainability", path: "/sustainability" },
-    { name: "About Us", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
 

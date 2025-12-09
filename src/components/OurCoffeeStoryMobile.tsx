@@ -59,12 +59,15 @@ const OurCoffeeStoryMobile: React.FC = () => {
                 <h3 className="relative z-10 font-serif text-2xl font-bold text-forest-900 mb-2">
                   Our Story
                 </h3>
-                <p className="relative z-10 text-[16px] leading-relaxed text-forest-900/80 desc-text">
-                  Pillcocaja is a women-led, family-run project rooted in stewardship. We nurture biodiversity,
-                  protect water sources and harvest with care so each lot tells an honest story of place and people.
+                <p className="relative z-10 text-[14px] leading-relaxed text-forest-900/80 desc-text">
+                  PILLCOCAJA SPECIALTY COFFEE was founded on January 9, 2008, to
+                develop commercial and agricultural projects in the picturesque
+                Yunguilla Valley, 75 km from Cuenca. Originally focused on sugarcane
+                for alcohol production, the company faced declining sales due to rising
+                costs and market challenges.
                 </p>
                 <div className="relative z-10 mt-4">
-                  <a href="/about" className="rounded-none border border-forest-800 text-forest-800 px-4 py-2 text-sm font-semibold">
+                  <a href="/farm" className="rounded-none border border-forest-800 text-forest-800 px-4 py-2 text-sm font-semibold">
                     Read more
                   </a>
                 </div>
@@ -85,12 +88,14 @@ const OurCoffeeStoryMobile: React.FC = () => {
                   </span>
                 </header>
                 <h3 className="relative z-10 font-serif text-2xl font-bold text-forest-900 mb-2">
-                  Traceable Microlots
+                  Success Case
                 </h3>
-                <p className="relative z-10 text-[16px] leading-relaxed text-forest-900/80 desc-text">
-                  Through traceable, carefully prepared microlots, our coffees travel from the valley to roasters
-                  around the world. Each bag carries the work of our community � clarity, sweetness and the distinct
-                  character of our mountains.
+                <p className="relative z-10 text-[14px] leading-relaxed text-forest-900/80 desc-text">
+                In 2013, Pillcocaja shifted to high-quality coffee, capitalizing on the
+                area’s unique microclimate. Partnering with Nestlé Ecuador, they
+                planted an experimental coffee plot, which successfully grew into 7
+                hectares of specialty coffee. Today, their coffee is cherished
+                worldwide, featured with prestigious roasters like April, Portola, and Dak.
                 </p>
               </article>
             </div>

@@ -1,40 +1,36 @@
-import React from 'react';
+﻿import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import TopNav from './components/TopNav'; // Usar TopNav consistentemente
-import Footer from './components/Footer';
 import Home from './pages/Home';
 import GreenCoffee from './pages/GreenCoffee';
 import ForRoasters from './pages/ForRoasters';
-import RoastedCoffee from './pages/RoastedCoffee';
 import Sustainability from './pages/Sustainability';
-import About from './pages/About';
 import Contact from './pages/Contact';
+import MicrolotProduct from './pages/MicrolotProduct';
+import Cart from './pages/Cart';
 
 function AppLayout() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-  const isGreen = location.pathname === "/green-coffee";
+  // Footer disabled site-wide to keep section flow.
 
-  // En Home, el TopNav se renderiza con lógica especial.
-  // En las demás páginas, se renderiza con fondo claro.
-  const showFooter = !isHome && !isGreen; 
+
 
   return (
-    <div className={`min-h-screen bg-cream-50 ${isHome ? "overflow-hidden" : ""}`}>
-      {/* Renderiza TopNav en todas las páginas EXCEPTO en Home y GreenCoffee (que tiene su propio TopNav) */}
-      {!isHome && !isGreen && <TopNav onLight={false} />}
+    <div className={`min-h-screen bg-cream-50`}>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/green-coffee" element={<GreenCoffee />} />
+          <Route path="/microlots/:slug" element={<MicrolotProduct />} />
+          <Route path="/nanolots/:slug" element={<MicrolotProduct />} />
+          <Route path="/cart" element={<Cart />} />
+          {/* Nueva ruta para Farm manteniendo compatibilidad con /for-roasters */}
+          <Route path="/farm"element={<ForRoasters />} />
           <Route path="/for-roasters" element={<ForRoasters />} />
-          <Route path="/roasted-coffee" element={<RoastedCoffee />} />
           <Route path="/sustainability" element={<Sustainability />} />
-          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      {showFooter && <Footer />}
+      {/* Footer removed per request */}
     </div>
   );
 }
@@ -48,3 +44,4 @@ function App() {
 }
 
 export default App;
+

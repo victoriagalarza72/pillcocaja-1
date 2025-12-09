@@ -20,7 +20,11 @@ const TopNav: React.FC<Props> = ({ leftOffset = 136, onLight = false }) => {
       target = document.getElementById("g-hero") || document.getElementById("hero-green");
     } else if (location.pathname === "/") {
       target = document.getElementById("sec-hero");
-    } else if (location.pathname === "/for-roasters") {
+    } else if (location.pathname === "/sustainability") {
+      target = document.getElementById("s-hero");
+    } else if (location.pathname === "/contact") {
+      target = document.getElementById("c-hero");
+    } else if (location.pathname === "/for-roasters" || location.pathname === "/farm") {
       target = document.getElementById("r-hero");
     } else {
       setHideOnScroll(false);
@@ -43,14 +47,13 @@ const TopNav: React.FC<Props> = ({ leftOffset = 136, onLight = false }) => {
   const links = [
     { label: "Home", to: "/" },
     { label: "Green Coffee", to: "/green-coffee" },
-    { label: "For Roasters", to: "/for-roasters" },
-    { label: "Roasted Coffee", to: "/roasted-coffee" },
+    { label: "Farm", to: "/farm" },
     { label: "Sustainability", to: "/sustainability" },
-    { label: "About", to: "/about" },
     { label: "Contact", to: "/contact" },
   ];
 
   const linkBase = `font-mono font-black ${onLight ? 'text-forest-900/90 hover:text-forest-900' : 'text-white/90 hover:text-white'}`;
+  const desktopLinks = links.filter((l) => l.label !== 'Contact');
   const toggleBtn = onLight ? 'bg-black/10 text-forest-900 ring-forest-900/20' : 'bg-white/10 text-white ring-white/20';
 
   return (
@@ -65,7 +68,7 @@ const TopNav: React.FC<Props> = ({ leftOffset = 136, onLight = false }) => {
 
         {/* Desktop */}
         <ul className="hidden md:flex items-center gap-8">
-          {links.slice(0, 5).map((l) => (
+          {desktopLinks.map((l) => (
             <li key={l.to}><Link to={l.to} className={linkBase}>{l.label}</Link></li>
           ))}
           <li>
@@ -104,7 +107,7 @@ const TopNav: React.FC<Props> = ({ leftOffset = 136, onLight = false }) => {
           aria-modal="true"
         >
           <div className="px-5 py-4 flex items-center justify-between border-b border-white/10">
-            <Link to="/" aria-label="Pillcocaja - Home" className="inline-flex items-center lg:hidden">
+            <Link to="/" aria-label="Pillcocaja - Home" className="inline-flex items-center md:hidden">
               <img src={logoUrl} alt="Pillcocaja" className="h-8 w-auto object-contain" />
             </Link>
             <button
