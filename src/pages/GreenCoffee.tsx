@@ -14,6 +14,7 @@ const GreenCoffee: React.FC = () => {
   const heroBg = new URL('../assets/images/yunguilla3.png', import.meta.url).href;
   const hoja1Bg = new URL('../assets/illustrations/hoja1.svg', import.meta.url).href;
   const hoja2Bg = new URL('../assets/illustrations/hoja2.svg', import.meta.url).href;
+  const harvestBg = new URL('../assets/images/cafe14.png', import.meta.url).href;
 
   const microlots = microlotsData;
 
@@ -138,7 +139,11 @@ const GreenCoffee: React.FC = () => {
         </section>
 
         {/* Harvest Calendar */}
-        <section id="g-harvest" className="relative section-padding bg-cover bg-center snap-start min-h-screen" style={{ backgroundImage: "url('/src/assets/images/cafe14.png')" }}>
+        <section
+          id="g-harvest"
+          className="relative section-padding bg-cover bg-center snap-start min-h-screen"
+          style={{ backgroundImage: `url(${harvestBg})` }}
+        >
           <div className="absolute inset-0 opacity-90 bg-forest-900" aria-hidden="true" />
           <div className="relative container-width z-10" style={{ paddingLeft: showRail ? RAIL_W + 24 : 0 }}>
             <div className="text-center mb-8 md:mb-12">

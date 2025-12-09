@@ -10,7 +10,7 @@ import OfferingsShowcase from "../components/OfferingShowcase";
 import SeasonalHighlight from "../components/SeasonalHighlight";
 import SeasonalHighlightMobile from "../components/SeasonalHighlightMobile";
 
-const videoSrc = "/videos/videocortado2.mp4";
+const videoSrc = new URL("../assets/videos/videocortado2.mp4", import.meta.url).href;
 const heroPoster = "/videos/hero-poster.jpg";
 
 const SECTIONS = [
@@ -161,13 +161,13 @@ const Home: React.FC = () => {
         </section>
 
         <section id="sec-special" className="relative snap-start">
-        <div className="hidden lg:block">
+        <div className="hidden md:block">
             <OfferingsShowcase
               fullHeight={true}
               leftOffset={isLargeUp ? effectiveRailWidth : 0}
             />
           </div>
-          <div className="block lg:hidden">
+          <div className="block md:hidden">
             <MobileOfferingsCarousel />
           </div>
         </section>

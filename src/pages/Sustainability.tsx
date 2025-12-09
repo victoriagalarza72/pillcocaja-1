@@ -82,6 +82,8 @@ const IMPACT_METRICS: ImpactMetric[] = [
 const Sustainability: React.FC = () => {
   const heroBg = new URL('../assets/images/yunguilla3.png', import.meta.url).href;
   const impactBg = new URL('../assets/images/cafefondo.jpeg', import.meta.url).href;
+  const florBg = new URL('../assets/illustrations/cafeflor.svg', import.meta.url).href;
+  const sustainabilityBg = new URL('../assets/images/sostenibilidad.jpeg', import.meta.url).href;
   const teamImgs = [
     new URL('../assets/images/trabajador4.jpeg', import.meta.url).href,
     new URL('../assets/images/trabajador2.jpeg', import.meta.url).href,
@@ -200,11 +202,19 @@ const Sustainability: React.FC = () => {
               </div>
             </div>
 
-            {/* Desktop layout */}
-            <div className="hidden lg:grid grid-cols-12 min-h-screen overflow-hidden">
+              {/* Desktop layout */}
+              <div className="hidden lg:grid grid-cols-12 min-h-screen overflow-hidden">
               {/* Left text panel */}
               <div className="col-span-12 lg:col-span-6 bg-[rgba(145,93,55)] text-cream-100 px-6 py-10 md:px-10 md:py-14 relative overflow-hidden">
-                <div className="pointer-events-none absolute inset-0 opacity-20 bg-no-repeat" style={{ backgroundImage: "url('src/assets/illustrations/cafeflor.svg')", backgroundSize: '120%', backgroundPosition: 'center 70%' }} aria-hidden />
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-20 bg-no-repeat"
+                  style={{
+                    backgroundImage: `url('${florBg}')`,
+                    backgroundSize: '120%',
+                    backgroundPosition: 'center 70%',
+                  }}
+                  aria-hidden
+                />
 
                 {/* Desktop: full text */}
                 <div className="hidden lg:flex flex-col justify-center h-full">
@@ -248,7 +258,11 @@ const Sustainability: React.FC = () => {
 
               {/* Right image + quote panel */}
               <div className="col-span-12 lg:col-span-6 relative h-full min-h-[420px]">
-                <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('src/assets/images/sostenibilidad.jpeg')" }} aria-hidden />
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url('${sustainabilityBg}')` }}
+                  aria-hidden
+                />
                 <div className="absolute inset-0 bg-black/30" aria-hidden />
                 <div className="absolute inset-0 flex items-end justify-center p-6 md:p-10 pb-10 md:pb-16">
                   <div className="bg-cream-100/95 text-forest-900 p-6 md:p-8 max-w-xl shadow-xl ring-1 ring-black/10">

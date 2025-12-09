@@ -7,22 +7,25 @@ type Props = {
   leftOffset?: number; // padding-left extra para la rail
 };
 
+const assetImg = (file: string) =>
+  new URL(`../assets/images/${file}`, import.meta.url).href;
+
 const cards = [
   {
     title: "Green Coffee",
-    img: "src/assets/images/micro7.png",
+    img: assetImg("micro7.png"),
     to: "/green-coffee",
     desc: "Premium microlots and nanolots with full traceability.",
   },
   {
     title: "Direct Trade",
-    img: "src/assets/images/cafefondo.jpeg",
+    img: assetImg("cafefondo.jpeg"),
     to: "/farm",
     desc: "Transparent partnerships with our family farm.",
   },
   {
     title: "Roasted Coffee",
-    img: "src/assets/images/roastedcoffee.jpeg",
+    img: assetImg("roastedcoffee.jpeg"),
     to: "/contact",
     desc: "Our roasted line is coming soon.",
   },
@@ -116,7 +119,7 @@ export default function OfferingsShowcase({
       {/* Fondo */}
       <div
         className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: 'url("src/assets/images/cafe7.png")' }}
+        style={{ backgroundImage: `url("${assetImg("cafe7.png")}")` }}
         aria-hidden="true"
       />
       {/* Viñeta para lectura */}

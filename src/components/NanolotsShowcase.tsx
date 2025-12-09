@@ -8,6 +8,11 @@ type Props = {
   leftOffset?: number;
 };
 
+const backgroundImg = new URL(
+  "../assets/images/cafe7.png",
+  import.meta.url
+).href;
+
 const cardsData = [
   {
     title: "Typica Anaerobic Washed",
@@ -108,7 +113,7 @@ export default function NanolotsShowcase({ fullHeight = true, leftOffset = 0 }: 
     <section ref={sectionRef} className={sectionClasses}>
       <div
         className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: 'url("src/assets/images/cafe7.png")' }}
+        style={{ backgroundImage: `url("${backgroundImg}")` }}
         aria-hidden
       />
       <div className="absolute inset-0 bg-black/45" aria-hidden />

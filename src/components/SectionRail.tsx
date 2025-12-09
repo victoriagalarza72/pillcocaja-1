@@ -10,6 +10,11 @@ type Props = {
   visible?: boolean;
 };
 
+const cafeflorIllustration = new URL(
+  "../assets/illustrations/cafeflor.svg",
+  import.meta.url
+).href;
+
 const SectionRail: React.FC<Props> = ({ items, activeId, onClick, railWidth = 136, showLabels = true, visible = true }) => {
   // Default backgrounds:
   // - Home "sec-special" uses a darker translucent tone
@@ -52,7 +57,7 @@ const SectionRail: React.FC<Props> = ({ items, activeId, onClick, railWidth = 13
           backgroundColor: railBg,
           backgroundImage:
             activeId === 's-community'
-              ? `linear-gradient(rgba(145,93,55,0.92), rgba(145,93,55,0.92)), url("src/assets/illustrations/cafeflor.svg")`
+              ? `linear-gradient(rgba(145,93,55,0.92), rgba(145,93,55,0.92)), url("${cafeflorIllustration}")`
               : undefined,
           backgroundSize: activeId === 's-community' ? 'contain' : undefined,
           backgroundRepeat: activeId === 's-community' ? 'no-repeat' : undefined,

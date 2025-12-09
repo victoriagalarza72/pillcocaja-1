@@ -2,22 +2,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+const assetImg = (file: string) =>
+  new URL(`../assets/images/${file}`, import.meta.url).href;
+
 const cards = [
   {
     title: "Green Coffee",
-    img: "src/assets/images/micro7.png",
+    img: assetImg("micro7.png"),
     to: "/green-coffee",
     desc: "Premium microlots and nanolots with full traceability.",
   },
   {
     title: "Direct Trade",
-    img: "src/assets/images/cafefondo.jpeg",
+    img: assetImg("cafefondo.jpeg"),
     to: "/farm",
     desc: "Transparent partnerships with our family farm.",
   },
   {
     title: "Roasted Coffee",
-    img: "src/assets/images/roastedcoffee.jpeg",
+    img: assetImg("roastedcoffee.jpeg"),
     to: "/contact",
     desc: "Our roasted line is coming soon.",
   },
@@ -77,7 +80,11 @@ const MobileOfferingsCarousel: React.FC = () => {
 
   return (
     <section className="min-h-screen bg-black text-white flex flex-col">
-      <div className="absolute inset-0 bg-center bg-cover opacity-60" style={{ backgroundImage: 'url("src/assets/images/cafe7.png")' }} aria-hidden />
+      <div
+        className="absolute inset-0 bg-center bg-cover opacity-60"
+        style={{ backgroundImage: `url("${assetImg("cafe7.png")}")` }}
+        aria-hidden
+      />
       <div className="relative h-full flex flex-col flex-1">
         <div className="px-6 pt-24 pb-8 text-center">
           <p className="uppercase tracking-[0.18em] text-sm text-white/80">
